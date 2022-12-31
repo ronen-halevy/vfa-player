@@ -1,4 +1,4 @@
-export default class VfbfStreamer {
+export default class VfbfStreamer1 {
   /**
    * Brief description of the class here
    * @extends ParentClassNameHereIfAny
