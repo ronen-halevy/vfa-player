@@ -4,7 +4,7 @@ export default class VfbfStreamer1 {
    * @extends ParentClassNameHereIfAny
    */
   constructor(playCallback, canvasHeight, canvasWidth) {
-    this.videoObject  document.createElement('video');
+    this.videoObject = document.createElement('video');
     this.videoObject.height = canvasHeight; // in px
     this.videoObject.width = canvasWidth;
     this.playCallback = playCallback;
