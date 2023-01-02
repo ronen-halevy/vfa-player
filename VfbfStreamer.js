@@ -3,11 +3,12 @@ export default class Player {
    * Brief description of the class here
    * @extends ParentClassNameHereIfAny
    */
-  constructor(playCallback, canvasHeight, canvasWidth) {
+  constructor(playCallback, canvasHeight, canvasWidth, endedCallback) {
     this.videoObject = document.createElement('video');
     this.videoObject.height = canvasHeight; // in px
     this.videoObject.width = canvasWidth;
     this.playCallback = playCallback;
+    this.endedCallback = endedCallback;
   }
 
   stopVideo = () => {
@@ -25,7 +26,7 @@ export default class Player {
       const imageObjectURL = URL.createObjectURL(imageBlob);
       imageObject.src = imageObjectURL;
       imageObject.addEventListener('load', async () => {
-        this.playCallback(imageObject, null, null);
+        this.playCallback(imageObject, 0, 0);
       });
     };
     fetchImage();
@@ -57,7 +58,7 @@ export default class Player {
       this.videoObject.paused
     ) {
       cancelAnimationFrame(id);
-      this.playCallback(null, null, null);
+      this.endedCallback();
     }
   };
 
@@ -106,4 +107,3 @@ export default class Player {
     }
   };
 }
-
