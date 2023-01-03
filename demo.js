@@ -69,6 +69,6 @@ const demoVfbfStreamer = () => {
     range.value = currentTime;
     range.max = duration;
   };
-  const vfbf = new VfbfStreamer(cbk, canvas.height, canvas.height, VideoEnded);
+  const vfbf = new VfbfStreamer(cbk, VideoEnded);
 };
 demoVfbfStreamer();
