@@ -4,33 +4,45 @@
 
     <h4 > By: Ronen Halevy ronen567@gmai.com</h4>
 
-    <br>
+    <div>
 
     <h4 id="sourceName"></h4>
     <p id="credit"></p>
+</div>
+<div>
 
-    <b> Start/Stop by clicking the button or canvas</b>
-    <br>
+    <b> click button or canvas</b>
+</div>
+    
+    <p> Range bar can be moved manualy while stopped</[p]>
+
+<div>
+
 
 
     
 
 <button id='playUrl'> Play Url</button>
 
+<input
+type='range'
+id='range-input'
+min='0'
+step='0.1'
+id='customRange3'
+
+
+/>
+</div>
+
+<!-- <script>
+onchange = (e) => {
+    value = e.target.value;
+  };
+</script> -->
     <canvas id="canvas" onclick="canvasOnClick" >The current time</canvas>
 
-
-
-
-
-
-<script type="module" src="testlink.js"></script>
-<!-- <script type="text/javascript" src="VfbfStreamer.js"></script> -->
-
-<!-- <a href='linkhref.html' id='playUrl'>play</a>
-<a href='linkhref.html' id='playUrl1'>play1</a> -->
-
-<script type="module" src="demoStreamFromUrl.js"></script>
+<script type="module" src="demo.js"></script>
 
 <script type="text/javascript">
 
