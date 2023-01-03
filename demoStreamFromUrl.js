@@ -1,14 +1,29 @@
 import VfbfStreamer from './VfbfStreamer.js';
 
-var playUrl = document.getElementById('mylink4');
-playUrl.innerHTML = 'Play';
+const demoVfbfStreamer = () => {
+  document.getElementById('sourceName').innerHTML =
+    'Video Title: flock-of-seagulls';
+  document.getElementById('credit').innerHTML =
+    'Credit to  https://mixkit.co/ - video stock source';
 
-const pp = () => {
   const canvas = document.getElementById('canvas');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
   const context = canvas.getContext('2d');
+  canvas.onclick = () => {
+    onclick();
+  };
 
-  playUrl.onclick = function () {
-    vfbf.playVideo(dataUrl);
+  var button = document.getElementById('playUrl');
+  button.innerHTML = 'Play';
+  button.onclick = function () {
+    onclick();
+  };
+
+  const onclick = () => {
+    const url =
+      'https://assets.mixkit.co/videos/download/mixkit-flock-of-seagulls-in-the-sky-17978-medium.mp4';
+    vfbf.playVideo(url);
     if (playUrl.innerHTML === 'Play') {
       playUrl.innerHTML = 'Stop';
     } else {
@@ -30,30 +45,21 @@ const pp = () => {
   };
 
   const VideoEnded = () => {
-    console.log('on click!!!!');
     playUrl.innerHTML = 'Play';
   };
-  const dataUrl =
-    'https://assets.mixkit.co/videos/preview/mixkit-lovers-walking-through-a-lavender-field-4530-large.mp4';
+
   const cbk = (frame, currentTime, duration) => {
-    const size = 150;
-    context.drawImage(frame, 0, 0, size, size);
-    const alpha = Math.random();
-    context.globalAlpha = alpha;
+    context.drawImage(frame, 0, 0, canvas.width, canvas.height);
     context.beginPath();
-    const loc = 5 + Math.floor(currentTime) * 5;
-    context.rect(loc, loc, 40, 40);
-    context.stroke();
     const fps = findFps();
-    document.getElementById('demo').innerHTML =
-      'fps: ' +
-      fps +
-      ' time:' +
-      currentTime.toFixed(1) +
-      '/' +
-      duration.toFixed(1);
     vfbf.getAnimationControl()();
+
+    const text1 = 'fps: ' + fps;
+    const text2 = 'time: ' + currentTime.toFixed(1) + '/' + duration.toFixed(1);
+    context.font = '30px Georgia';
+    context.fillText(text1, 40, 40);
+    context.fillText(text2, 40, 140);
   };
-  const vfbf = new VfbfStreamer(cbk, 416, 416, VideoEnded);
+  const vfbf = new VfbfStreamer(cbk, canvas.height, canvas.height, VideoEnded);
 };
-pp();
+demoVfbfStreamer();
