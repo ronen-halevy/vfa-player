@@ -8,14 +8,30 @@ const demoVfbfStreamer = () => {
     range.value = e.target.value;
     vfbf.setCurrentTime(e.target.value);
   };
+  var isVideoPlaying = false;
+  const onClickPlay = () => {
+    isVideoPlaying =
+      selectedType == 'video'
+        ? vfbf.playVideo(selectedUrl)
+        : vfbf.playImage(selectedUrl);
+
+    if (isVideoPlaying) {
+      playUrl.innerHTML = 'Stop';
+    } else {
+      playUrl.innerHTML = 'Play';
+    }
+    return false;
+  };
+
   const canvas = document.getElementById('canvas');
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  const context = canvas.getContext('2d');
 
-  canvas.onclick = () => {
-    onclick();
-  };
+  canvas.addEventListener('click', onClickPlay);
+  const context = canvas.getContext('2d');
+  context.fillStyle = 'grey';
+  context.fillRect(0, 0, canvas.width, canvas.height);
+
   const vidUrl =
     'https://assets.mixkit.co/videos/download/mixkit-flock-of-seagulls-in-the-sky-17978-medium.mp4';
   const imgUrl =
@@ -29,24 +45,14 @@ const demoVfbfStreamer = () => {
   // load and play video by url
   var button = document.getElementById('playUrl');
   button.innerHTML = 'Play';
-  button.onclick = function () {
-    const isVideoPlaying =
-      selectedType == 'video'
-        ? vfbf.playVideo(selectedUrl)
-        : vfbf.playImage(selectedUrl);
-
-    if (isVideoPlaying) {
-      playUrl.innerHTML = 'Stop';
-    } else {
-      playUrl.innerHTML = 'Play';
-    }
-    return false;
-  };
+  button.onclick = onClickPlay;
   const sources = [
     { id: 'videoUrl', value: vidUrl, class: 'video' },
     { id: 'imageUrl', value: imgUrl, class: 'image' },
     { id: 'localFile', value: '', class: '' },
   ];
+  selectedUrl = vidUrl;
+  selectedType = 'video';
 
   const onchangeRadio = (event) => {
     console.log(event.target.class);

@@ -28,7 +28,7 @@
 
 <div>
     <span class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="videoUrl" value="video" >
+        <input class="form-check-input" type="radio" name="exampleRadios" id="videoUrl" value="video" checked>
         <label class="form-check-label" for="exampleRadios1">
          by video url
         </label>
@@ -80,14 +80,25 @@ min='0'
 step='0.1'
 id='customRange3'/>
 
+<!-- <label class='btn btn-dark   badge ' onClick={this.onClickPlay}>
+    <canvas
+    class='visible'
+    id="canvas2"
+      width=''
+      height=''
+    />
+  </label> -->
 
 
 
 <p>Credit+thanks to video stock: https://mixkit.co/ </p>
 
-    <canvas id="canvas" onclick="canvasOnClick" >The current time</canvas>
+<p>Touch<b>Canvas</b> to Play/stop</p> <div id="canvasStatusLabel"></div>
+    <canvas id="canvas"  >The current time</canvas>
 
 <script type="module" src="demo.js"></script>
+
+
 
 
 
