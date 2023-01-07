@@ -1,11 +1,6 @@
 import { VfbfStreamer } from './VfbfStreamer.js';
 
 const demoVfbfStreamer = () => {
-  document.getElementById('sourceName').innerHTML =
-    'Video Title: flock-of-seagulls';
-  document.getElementById('credit').innerHTML =
-    'Credit+thanks to video stock: https://mixkit.co/ ';
-
   // value={this.state.currentTime}
   // onChange={this.updateVideoDuration}
   const range = document.getElementById('range-input');
@@ -28,8 +23,8 @@ const demoVfbfStreamer = () => {
   var fileUrl = '';
   var fileUrlType = '';
 
-  var selectedUrl = vidUrl;
-  var selectedType = 'video';
+  var selectedUrl = '';
+  var selectedType = '';
 
   // load and play video by url
   var button = document.getElementById('playUrl');

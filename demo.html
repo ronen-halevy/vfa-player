@@ -1,24 +1,32 @@
 
+
     <h2 >Demo of VfbfStreamer </h2>
-    <h3 > VfbfStreamer is a video streamer utility for frame-by-frame video processing applications</h3>
+    <h4 > By: Ronen Halevy</h4>
 
-    <h4 > By: Ronen Halevy ronen567@gmai.com</h4>
+    <b><u>About the demo app</u></b>
 
-    <div>
+    <p><b>VfbfStreamer</b> is a video streamer utility for frame-by-frame video processing applications</p>
+    <p> This demo demonstrates usage of VfbfStreamer. </p>
+        <p>  It presents implementation with various data sources</p>
+        <p>Note: Beside streaming video frame-by-frame, the streamer supports forwarding of still images. Motivation for supporting images by streamer
+            was to supply an integrative contentionless module for apps which run both images and videos on the same canvas</p>
 
-    <h4 id="sourceName"></h4>
-    <p id="credit"></p>
-</div>
+
+
+
+<b><u>To run the streamer, follow the steps which follow.</u></b>
+    <ol>
+        <li>Press Play</li>
+      </ol>
+
+  <b><u>UI Panel</u></b>
+    </br> </br>
+
+
+    1. <u><b>Select source by radio button</b></u>
+</br></br>
+
 <div>
-
-    <b> click button or canvas</b>
-</div>
-    
-    <p> Range bar can be moved manualy while stopped</[p]>
-
-<div>
-
-
     <span class="form-check">
         <input class="form-check-input" type="radio" name="exampleRadios" id="videoUrl" value="video" >
         <label class="form-check-label" for="exampleRadios1">
@@ -35,37 +43,52 @@
           by localFile
         </label>
       </span>
-
     </div>
+</br> </br>
+
+2. <u><b>If selection is local file - pick the file.</b> </u>
+</br>
+(File button is visible only when localFile is selected)
+</br> </br>
+    <input
+id='inputFile'
+type='file'
+accept='video/*, image/*'
+/>
+</br> </br>
+<div class="row">
+    <div class="col">
+
+        3. <u><b>Click Play</b></u>
+        </br>       
+        (Play button is active only if a data source is selected)
+
+</br></br>
+
+   <div class="col">
+
+<button id='playUrl'></button>
 
 
-<button id='playUrl'> Play Url</button>
+</div>
 
+</div>
 <input
 type='range'
 id='range-input'
 min='0'
 step='0.1'
-id='customRange3'
+id='customRange3'/>
 
 
-/>
-</div>
-<input
-id='inputFile'
-type='file'
-accept='video/*, image/*'
-/>
 
-<!-- <script>
-onchange = (e) => {
-    value = e.target.value;
-  };
-</script> -->
+
+<p>Credit+thanks to video stock: https://mixkit.co/ </p>
+
     <canvas id="canvas" onclick="canvasOnClick" >The current time</canvas>
 
 <script type="module" src="demo.js"></script>
-<script type="text/javascript" src="testfile.js"></script>
+
 
 
   
