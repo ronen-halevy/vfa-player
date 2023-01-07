@@ -19,8 +19,25 @@
 <div>
 
 
+    <span class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="videoUrl" value="video" >
+        <label class="form-check-label" for="exampleRadios1">
+         by video url
+        </label>
+      </span>
+      <span class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="imageUrl" value="image">
+        <label class="form-check-label" for="exampleRadios2">
+          by image url
+        </label>
+        <input class="form-check-input" type="radio" name="exampleRadios" id="localFile" value="image">
+        <label class="form-check-label" for="exampleRadios2">
+          by localFile
+        </label>
+      </span>
 
-    
+    </div>
+
 
 <button id='playUrl'> Play Url</button>
 
@@ -34,6 +51,11 @@ id='customRange3'
 
 />
 </div>
+<input
+id='inputFile'
+type='file'
+accept='video/*, image/*'
+/>
 
 <!-- <script>
 onchange = (e) => {
@@ -43,6 +65,8 @@ onchange = (e) => {
     <canvas id="canvas" onclick="canvasOnClick" >The current time</canvas>
 
 <script type="module" src="demo.js"></script>
+<script type="text/javascript" src="testfile.js"></script>
 
-<script type="text/javascript">
+
+  
 
