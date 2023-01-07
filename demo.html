@@ -44,11 +44,13 @@
         </label>
       </span>
     </div>
-</br> </br>
+
+<div id="selectedUrl"></div>
+</br></br>
 
 2. <u><b>If selection is local file - pick the file.</b> </u>
 </br>
-(File button is visible only when localFile is selected)
+(File input selection element is visible only when localFile is selected)
 </br> </br>
     <input
 id='inputFile'
@@ -61,7 +63,7 @@ accept='video/*, image/*'
 
         3. <u><b>Click Play</b></u>
         </br>       
-        (Play button is active only if a data source is selected)
+        Click button or Touch<b>Canvas</b> to play or stop.
 
 </br></br>
 
@@ -80,20 +82,11 @@ min='0'
 step='0.1'
 id='customRange3'/>
 
-<!-- <label class='btn btn-dark   badge ' onClick={this.onClickPlay}>
-    <canvas
-    class='visible'
-    id="canvas2"
-      width=''
-      height=''
-    />
-  </label> -->
-
 
 
 <p>Credit+thanks to video stock: https://mixkit.co/ </p>
 
-<p>Touch<b>Canvas</b> to Play/stop</p> <div id="canvasStatusLabel"></div>
+<p style="background-color:powderblue;">Touch<b>Canvas</b> to Play/stop</p> 
     <canvas id="canvas"  >The current time</canvas>
 
 <script type="module" src="demo.js"></script>

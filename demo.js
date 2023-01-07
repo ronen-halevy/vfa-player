@@ -75,6 +75,8 @@ const demoVfbfStreamer = () => {
     } else {
       buttonFile.style.visibility = 'hidden';
     }
+    document.getElementById('selectedUrl').innerHTML =
+      'Selected url: ' + selectedUrl;
   };
 
   sources.map((source, index) => {
@@ -94,6 +96,8 @@ const demoVfbfStreamer = () => {
 
     selectedUrl = fileUrl;
     selectedType = fileUrlType;
+    document.getElementById('selectedUrl').innerHTML =
+      'Selected url: ' + selectedUrl;
   };
 
   var lastLoop = 0;
@@ -128,15 +132,21 @@ const demoVfbfStreamer = () => {
     context.beginPath();
     vfbf.getAnimationControl()();
 
-    const text1 = 'fps: ' + fps;
-    const text2 = 'time: ' + currentTime.toFixed(1) + '/' + duration.toFixed(1);
+    const text1 =
+      'time: ' +
+      currentTime.toFixed(1) +
+      '/' +
+      duration.toFixed(1) +
+      ' fps: ' +
+      fps;
     context.font = '30px Georgia';
     context.fillStyle = '#00ff00';
     context.fillText(text1, 40, 40);
-    context.fillText(text2, 40, 140);
     range.value = currentTime;
     range.max = duration;
   };
+  document.getElementById('selectedUrl').innerHTML =
+    'Selected url: ' + selectedUrl;
 
   const vfbf = new VfbfStreamer(cbk, VideoEnded);
 };
