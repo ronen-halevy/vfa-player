@@ -10,6 +10,7 @@ const demoVfbfStreamer = () => {
   };
   var isVideoPlaying = false;
   const onClickPlay = () => {
+    console.log(selectedUrl);
     isVideoPlaying =
       selectedType == 'video'
         ? vfbf.playVideo(selectedUrl)
@@ -89,13 +90,15 @@ const demoVfbfStreamer = () => {
   var buttonFile = document.getElementById('inputFile');
   buttonFile.onchange = function (event) {
     const file = event.target.files[0];
-    console.log(file);
-    fileUrlType = file.name.match(/\.(jpg|jpeg|png|gif)$/i) ? 'image' : 'video';
+    // extract url, required by vfbfStreamer as an input:
     var URL = window.URL || window.webkitURL;
     fileUrl = URL.createObjectURL(file);
-
+    // save url and type to feed player:
     selectedUrl = fileUrl;
+    // determine type, since streamer has a dedicated method for still images:
+    fileUrlType = file.name.match(/\.(jpg|jpeg|png|gif)$/i) ? 'image' : 'video';
     selectedType = fileUrlType;
+    // display:
     document.getElementById('selectedUrl').innerHTML =
       'Selected url: ' + selectedUrl;
   };
@@ -116,7 +119,7 @@ const demoVfbfStreamer = () => {
     playUrl.innerHTML = 'Play';
   };
 
-  const cbk = (frame, currentTime, duration) => {
+  const streamerCallback = (frame, currentTime, duration) => {
     // if video
     if (duration) {
       canvas.width = frame.videoWidth;
@@ -148,6 +151,6 @@ const demoVfbfStreamer = () => {
   document.getElementById('selectedUrl').innerHTML =
     'Selected url: ' + selectedUrl;
 
-  const vfbf = new VfbfStreamer(cbk, VideoEnded);
+  const vfbf = new VfbfStreamer(streamerCallback, VideoEnded);
 };
 demoVfbfStreamer();

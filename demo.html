@@ -14,16 +14,11 @@
 
 
 
-<b><u>To run the streamer, follow the steps which follow.</u></b>
-    <ol>
-        <li>Press Play</li>
-      </ol>
-
   <b><u>UI Panel</u></b>
     </br> </br>
 
 
-    1. <u><b>Select source by radio button</b></u>
+    1. <u><b>Source selection by radio buttons</b></u>
 </br></br>
 
 <div>
@@ -48,7 +43,7 @@
 <div id="selectedUrl"></div>
 </br></br>
 
-2. <u><b>If selection is local file - pick the file.</b> </u>
+2. <u><b>If selection is a local file - pick the file.</b> </u>
 </br>
 (File input selection element is visible only when localFile is selected)
 </br> </br>
@@ -62,29 +57,32 @@ accept='video/*, image/*'
     <div class="col">
 
         3. <u><b>Click Play</b></u>
+    </br>
         </br>       
-        Click button or Touch<b>Canvas</b> to play or stop.
+        Click either <b>Play</b> button or Touch<b>Canvas</b> to play or stop.
 
 </br></br>
 
-   <div class="col">
-
-<button id='playUrl'></button>
 
 
 </div>
 
-</div>
+
+
+
+<p>Credit+thanks to video stock: https://mixkit.co/ </p>
+<div class="col">
+
+    <button id='playUrl'></button>
+    
+    
+    </div>
 <input
 type='range'
 id='range-input'
 min='0'
 step='0.1'
 id='customRange3'/>
-
-
-
-<p>Credit+thanks to video stock: https://mixkit.co/ </p>
 
 <p style="background-color:powderblue;">Touch<b>Canvas</b> to Play/stop</p> 
     <canvas id="canvas"  >The current time</canvas>
