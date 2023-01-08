@@ -1,7 +1,7 @@
 import { VfbfStreamer } from './VfbfStreamer.js';
 
 const demoVfbfStreamer = () => {
-  // callback of html components:
+  // callbacks of html elements:
 
   // range bar callabck:
   const range = document.getElementById('range-input');
@@ -12,7 +12,6 @@ const demoVfbfStreamer = () => {
   // play-stop callabck - common to play button and clickable canvas:
   var isVideoPlaying = false;
   const onClickPlay = () => {
-    console.log(selectedUrl);
     isVideoPlaying =
       selectedType == 'video'
         ? vfbf.playVideo(selectedUrl)
@@ -22,7 +21,11 @@ const demoVfbfStreamer = () => {
     } else {
       playUrl.innerHTML = 'Play';
     }
-    return false;
+    if (isVideoPlaying) {
+      document.getElementById('runningStatus').innerHTML = 'running';
+    } else {
+      document.getElementById('runningStatus').innerHTML = '';
+    }
   };
 
   // inputFile button callback:
@@ -63,7 +66,6 @@ const demoVfbfStreamer = () => {
       ? 'video'
       : 'fileSrc';
     if (selectedType == 'fileSrc') {
-      console.log('fileUrlType', fileUrlType);
       selectedUrl = fileUrl;
       selectedType = fileUrlType;
       inputFile.style.visibility = 'visible';

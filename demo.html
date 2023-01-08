@@ -1,16 +1,45 @@
 
 
     <h2 >Demo of VfbfStreamer </h2>
+    <h4 >A video streamerer utility for frame-by-frame video processing apps</h4>
     <h4 > By: Ronen Halevy</h4>
 
-    Demonstration of VfbfStreamer - a video frame-by-frame stremer. The demo illustrates execution of vfbfStreamer with various input sources and also illustrates a frame-by-frame image processing using openCvJS algorithms.
-    <b><u>About the demo app</u></b>
+</br>
+ 
+This demo illustrates the integration of vfbfStreamer with a Javascript image processing application. 
+</br>
+It provides a simple plain-js example, by demonstrating common scenarios as detailed below:
+</br></br>
 
-    <p><b>VfbfStreamer</b> is a video streamer utility for frame-by-frame video processing applications</p>
-    <p> This demo demonstrates usage of VfbfStreamer. </p>
-        <p>  It presents implementation with various data sources</p>
-        <p>Note: Beside streaming video frame-by-frame, the streamer supports forwarding of still images. Motivation for supporting images by streamer
-            was to supply an integrative contentionless module for apps which run both images and videos on the same canvas</p>
+
+1. <b>Input Data</b>
+</br>
+
+The demo gives various options for input data:
+- video url: VfbfStreamer's most straight forward input for.
+- image url:  VfbfStreamer aupports still images input as well, as explained later on.
+- image and videos from local storage files: The demo generates urls for those, before calling the streamer method.
+</br>
+</br>
+
+2. <b>Frame by Frame Processing algorithms</b>
+</br>
+
+The demo illustrates integration with openCvJs image processing algorithms.
+
+
+</br>
+</br>
+3. <b>Support of still Images</b>
+</br>
+ Beside streaming video frame-by-frame, the streamer supports forwarding of still images. Motivation for supporting images by streamer
+  was to supply an integrative contentionless module, for apps which process both images and videos on the same canvas</p>
+
+
+</br></br>
+
+The demo is controlled by below's UI Panel.Follow the execution steps.
+</br></br>
 
 
 
@@ -42,13 +71,14 @@
       </span>
     </div>
 
-<!-- place holder for script's source url display-->
+<!-- element for script's source url display-->
+</br>
 <div id="selectedUrl"></div>
 </br></br>
 <!-- Select input file from local storage s -->
 
 2. <u><b>If selection is a local file - pick the file.</b> </u>
-</br>
+</br></br>
 (File input selection element is visible only when localFile is selected)
 </br> </br>
     <input
@@ -59,6 +89,9 @@ accept='video/*, image/*'
 </br> </br>
 
 
+3. <u><b>Selection of processing algorithm.</b> </u>
+</br>
+</br>
 
 <!-- Select open-cv algorithm  by radio buttons -->
 <div>
@@ -77,7 +110,7 @@ accept='video/*, image/*'
       <span class="form-check">
         <input class="form-check-input" type="radio" name="cvProcess" id="threshold" value="threshold">
         <label class="form-check-label" for="exampleRadios2">
-            threshold
+          simple thresholding
         </label>
         <input class="form-check-input" type="radio" name="cvProcess" id="canny" value="canny">
         <label class="form-check-label" for="exampleRadios2">
@@ -90,11 +123,12 @@ accept='video/*, image/*'
 
 <div class="row">
     <div class="col">
-
-        3. <u><b>Click Play</b></u>
+    </br></br>
+        4. <u><b>Play</b></u>
     </br>
         </br>       
         Click either <b>Play</b> button or Touch<b>Canvas</b> to play or stop.
+        
 
 </br></br>
 
@@ -120,8 +154,12 @@ min='0'
 step='0.1'
 id='customRange3'/>
     <!-- Canvas. onclick callback added by script -->
-
+<span>
 <p style="background-color:powderblue;">Touch<b>Canvas</b> to Play/stop</p> 
+
+<!-- element for script's runnig message display-->
+<b id="runningStatus"></b>
+</span>
     <canvas id="canvas"  >The current time</canvas>
 
 <script type="module" src="demo.js"></script>
