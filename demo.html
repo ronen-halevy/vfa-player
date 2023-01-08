@@ -21,6 +21,7 @@
     1. <u><b>Source selection by radio buttons</b></u>
 </br></br>
 
+<!-- Select input source by radio buttons -->
 <div>
     <span class="form-check">
         <input class="form-check-input" type="radio" name="exampleRadios" id="videoUrl" value="video" checked>
@@ -40,8 +41,10 @@
       </span>
     </div>
 
+<!-- place holder for script's source url display-->
 <div id="selectedUrl"></div>
 </br></br>
+<!-- Select input file from local storage s -->
 
 2. <u><b>If selection is a local file - pick the file.</b> </u>
 </br>
@@ -53,6 +56,37 @@ type='file'
 accept='video/*, image/*'
 />
 </br> </br>
+
+
+
+<!-- Select open-cv algorithm  by radio buttons -->
+<div>
+    <span class="form-check">
+        <input class="form-check-input" type="radio" name="cvProcess" id="original" value="original" checked>
+        <label class="form-check-label" for="exampleRadios1">
+            original
+        </label>
+      </span>
+    <span class="form-check">
+        <input class="form-check-input" type="radio" name="cvProcess" id="bw" value="bw" >
+        <label class="form-check-label" for="exampleRadios1">
+            bw
+        </label>
+      </span>
+      <span class="form-check">
+        <input class="form-check-input" type="radio" name="cvProcess" id="threshold" value="threshold">
+        <label class="form-check-label" for="exampleRadios2">
+            threshold
+        </label>
+        <input class="form-check-input" type="radio" name="cvProcess" id="canny" value="canny">
+        <label class="form-check-label" for="exampleRadios2">
+            canny edge filter
+        </label>
+      </span>
+    </div>
+
+<!-- Select play/stop button  -->
+
 <div class="row">
     <div class="col">
 
@@ -75,7 +109,8 @@ accept='video/*, image/*'
 
     <button id='playUrl'></button>
     
-    
+    <!-- Range input -->
+
     </div>
 <input
 type='range'
@@ -83,11 +118,17 @@ id='range-input'
 min='0'
 step='0.1'
 id='customRange3'/>
+    <!-- Canvas. onclick callback added by script -->
 
 <p style="background-color:powderblue;">Touch<b>Canvas</b> to Play/stop</p> 
     <canvas id="canvas"  >The current time</canvas>
 
 <script type="module" src="demo.js"></script>
+
+<!-- load opencv for demo -->
+<script async src="https://docs.opencv.org/master/opencv.js" type="text/javascript" id="openCv"></script>
+
+
 
 
 
