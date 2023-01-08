@@ -187,7 +187,7 @@ const demoVfbfStreamer = () => {
 
     context.beginPath();
     // trigger animation control:
-    vfbf.getAnimationControl()();
+    vfbf.animationControl();
 
     // annotate frame with fps, curenttime and duration:
     const text1 =

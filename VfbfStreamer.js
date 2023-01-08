@@ -31,10 +31,6 @@ export class VfbfStreamer {
     return false;
   };
 
-  getAnimationControl = () => {
-    return this.#animationControl;
-  };
-
   setPlaybackRate = (rate) => {
     this.videoObject.playbackRate = parseFloat(rate);
   };
@@ -43,7 +39,7 @@ export class VfbfStreamer {
     this.videoObject.currentTime = value;
   }
 
-  #animationControl = () => {
+  animationControl = () => {
     var id = window.requestAnimationFrame(() =>
       this.playCallback(
         this.videoObject,
