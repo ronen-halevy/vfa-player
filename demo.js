@@ -4,7 +4,7 @@ const demoVfbfStreamer = () => {
   // callbacks of html elements:
 
   // range bar callabck:
-  const range = document.getElementById('range-input');
+  const range = document.getElementById('customRange3');
   range.onchange = function (e) {
     range.value = e.target.value;
     vfbf.setCurrentTime(e.target.value);
