@@ -20,15 +20,23 @@
       <h4 >A video streaming utility for frame-by-frame video processing apps</h4>
       <h4 > By: Ronen Halevy</h4>
       <br>
+
+      <h3>Part 1: Description</h3>
+      <br>
+      <b>Introduction</b>
+      <div class="form-control border-success">
+
       <p>This demo application aims illustrates the integration of <a href=https://github.com/ronen-halevy/vfbf-streamer>vfbfStreamer</a> with a Javascript image processing application. 
          <br>
          Aims to be a guid for integrating vfbfStreamer in a video processing app, it provides a simple plain javascript example, which demonstrates various features, various common input data scenarios, and integrations with processing algorithms, 
          such as OpenCv.js,  as detailed below<br>
          To keep simple, the demo, is implemented with html and pure javascript (+bootstrap).
       </p>
+   </div>
+
       
-      
-      1. <b class="text-bg-dar">Input Data</b>
+      1. <b >Input Data</b>
+      <div class="form-control border-success">
       <p>
          The demo gives various options for input data:
          
@@ -38,8 +46,10 @@
          <br>
          <li>image and videos from local storage files: The demo generates urls for those, before calling the streamer method.</li>
       </p>
+   </div>
       2. <b class="text-bg-dar">Frame by Frame Processing algorithms</b>
-      <p>
+      <div class="form-control border-success">
+      <p >
          The demo illustrates integration with OpenCv.js image processing tools and algorithms:
          
          <li>bw: convert to b&w</li>
@@ -48,18 +58,30 @@
          <br>
          <li>canny edge filter: set  canny filter algorithm</li>
       </p>
-      3. <b class="text-bg-dar">Support of still Images</b>
+      </div>
+      3. <b class="">Support of still Images</b>
+      <div class="form-control border-success">
       
-      <p>In addition to video straming, the streamer supports forwarding of still images too.<br>
+      <p >In addition to video straming, the streamer supports forwarding of still images too.<br>
          Motivation for supporting images by streamer
          was to supply an integrative contentionless module, for apps which process both images and videos on the same canvas
       </p>
-      The demo is controlled by below's UI Panel.Follow the execution steps.
+      </div>
+      
+      <!-- <div class="h4 pb-2 mb-4 text-danger border-bottom border-danger"> -->
+<br>
+
+<h3>Part 2: VfbfStreamer Demo App</h3>
+
+   <!-- </div> -->
+
+      
+      Follow the execution steps:
       <br><br>
       <b><u>UI Panel</u></b>
    </br> </br>
-   1. <u class="text-bg-dar"><b>Source selection by radio buttons</b></u>
-   
+   1. <b>Source selection by radio buttons</b>
+   <div class="form-control border-success">
    <!-- Select input source by radio buttons -->
    <div class="col">
       <span class="form-check col">
@@ -82,21 +104,20 @@
       </span>
    </div>
    <!-- element for script's source url display-->
-</br>
-<div id="selectedUrl"></div>
-</br>
-<!-- Select input file from local storage s -->
-2. <u class="text-bg-dar"><b>local file selection</b> </u>
-<br>
-Note: File input selection element is visible only when localFile is selected.
-</br> </br>
+
+
 <input
 id='inputFile'
 type='file'
 accept='video/*, image/*'
 />
-</br> </br>
-3. <u class="text-bg-dar"><b>Selection of processing algorithm.</b> </u>
+</br>
+<div id="selectedUrl"></div>
+
+</div>
+2.<b>Selection of processing algorithm.</b>
+<div class="form-control border-success">
+
 <!-- Select open-cv algorithm  by radio buttons -->
 <div class=col>
    <span class="form-check col">
@@ -124,13 +145,16 @@ accept='video/*, image/*'
       </label>
    </span>
 </div>
+</div>
 <!-- Select play/stop button  -->
 <div class="row">
    <div class="col">
-      <br>
-      4. <u class="text-bg-dar"><b>Play</b></u>
-      
-   </br>       
+  
+      3.<b>Play</b>
+
+   </br>    
+   <div class="form-control border-success">
+   
    <div>
       Click either <b>Play</b> button or Touch<b>Canvas</b> to play or stop.
    </br></br>
@@ -139,6 +163,8 @@ accept='video/*, image/*'
 <div class="col">
    <button id='playUrl'></button>
 </div>
+</div>
+
 <!-- Range input -->
 </div>
 <input
@@ -158,7 +184,8 @@ id='customRange3'/>
    </span>
 </span>
 
-   <canvas id="canvas"  >The current time</canvas>
+   <canvas id="canvas"  ></canvas>
+
    <script type="module" src="demo.js"></script>
    <!-- load opencv for demo -->
    <script async src="https://docs.opencv.org/master/opencv.js" type="text/javascript" id="openCv"></script>
