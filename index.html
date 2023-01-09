@@ -20,45 +20,42 @@
       <h4 >A video streaming utility for frame-by-frame video processing apps</h4>
       <h4 > By: Ronen Halevy</h4>
       <br>
-      This demo illustrates the integration of vfbfStreamer with a Javascript image processing application. 
-      <br>
-      It provides a simple plain-js example, by demonstrating common scenarios as detailed below:
-      <br><br>
-      1. <b class="text-bg-dar">Input Data</b>
-      <br>
-      <div>
-         The demo gives various options for input data:
-         <br><br>
-         <li>video url: VfbfStreamer's most straight forward input for.</li>
+      <p>his demo illustrates the integration of vfbfStreamer with a Javascript image processing application. 
          <br>
-         <li>image url:  VfbfStreamer aupports still images input as well, as explained later on.</li>
-         <br>
-         <li>image and videos from local storage files: The demo generates urls for those, before calling the streamer method.</li>
-         <br>
-         <br>
+         It provides a simple plain-js example, by demonstrating common scenarios as detailed below:</p>
+         
+         1. <b class="text-bg-dar">Input Data</b>
+         <p>
+            The demo gives various options for input data:
+          
+            <li>video url: VfbfStreamer's most straight forward input for.</li>
+            <br>
+            <li>image url:  VfbfStreamer aupports still images input as well, as explained later on.</li>
+            <br>
+            <li>image and videos from local storage files: The demo generates urls for those, before calling the streamer method.</li>
+         </p>
          2. <b class="text-bg-dar">Frame by Frame Processing algorithms</b>
-         <br>
-         The demo illustrates integration with openCvJs image processing tools and algorithms:
-         <br> <br>
-         <li>bw: convert to b&w</li>
-         <br>
-         <li>simple thresholding: set a static threshold</li>
-         <br>
-         <li>canny edge filter: set  canny filter algorithm</li>
-         <br>
-         <br>
+         <p>
+            The demo illustrates integration with openCvJs image processing tools and algorithms:
+            
+            <li>bw: convert to b&w</li>
+            <br>
+            <li>simple thresholding: set a static threshold</li>
+            <br>
+            <li>canny edge filter: set  canny filter algorithm</li>
+         </p>
          3. <b class="text-bg-dar">Support of still Images</b>
-         <br>
-         Beside streaming video frame-by-frame, the streamer supports forwarding of still images.<br>
-         Motivation for supporting images by streamer
-         was to supply an integrative contentionless module, for apps which process both images and videos on the same canvas</p>
-         <br><br>
+         
+         <p>In addition to video straming, the streamer supports forwarding of still images too.<br>
+            Motivation for supporting images by streamer
+            was to supply an integrative contentionless module, for apps which process both images and videos on the same canvas
+         </p>
          The demo is controlled by below's UI Panel.Follow the execution steps.
          <br><br>
          <b><u>UI Panel</u></b>
       </br> </br>
       1. <u class="text-bg-dar"><b>Source selection by radio buttons</b></u>
-   </br></br>
+  
    <!-- Select input source by radio buttons -->
    <div class="col">
       <span class="form-check col">
@@ -83,11 +80,11 @@
    <!-- element for script's source url display-->
 </br>
 <div id="selectedUrl"></div>
-</br></br>
+</br>
 <!-- Select input file from local storage s -->
-2. <u class="text-bg-dar"><b>If selection is a local file - pick the file.</b> </u>
-</br></br>
-File input selection element is visible only when localFile is selected.
+2. <u class="text-bg-dar"><b>local file selection</b> </u>
+<br>
+Note: File input selection element is visible only when localFile is selected.
 </br> </br>
 <input
 id='inputFile'
@@ -96,8 +93,6 @@ accept='video/*, image/*'
 />
 </br> </br>
 3. <u class="text-bg-dar"><b>Selection of processing algorithm.</b> </u>
-</br>
-</br>
 <!-- Select open-cv algorithm  by radio buttons -->
 <div class=col>
    <span class="form-check col">
@@ -128,14 +123,14 @@ accept='video/*, image/*'
 <!-- Select play/stop button  -->
 <div class="row">
    <div class="col">
-   </br></br>
+   <br>
    4. <u class="text-bg-dar"><b>Play</b></u>
-</br>
+
 </br>       
 Click either <b>Play</b> button or Touch<b>Canvas</b> to play or stop.
 </br></br>
 </div>
-<p>Credit+thanks to video stock: https://mixkit.co/ </p>
+
 <div class="col">
    <button id='playUrl'></button>
    <!-- Range input -->
@@ -159,6 +154,11 @@ id='customRange3'/>
    <!-- load opencv for demo -->
    <script async src="https://docs.opencv.org/master/opencv.js" type="text/javascript" id="openCv"></script>
 </div>
+<p>Credit+thanks to: <br>
+   https://mixkit.co/ 
+  <br>
+    www.shutterstock.com</p>
 </div>
+
 </body>
 </html>
