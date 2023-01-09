@@ -87,13 +87,11 @@ const demoVfbfStreamer = () => {
 
   // canvas setup
   const canvas = document.getElementById('canvas');
-  // canvas.width = window.innerWidth;
-  // canvas.height = window.innerHeight;
   canvas.addEventListener('click', onClickPlay);
   const context = canvas.getContext('2d'); // tbd: attribute slows the none-algorithm pass fps: , { willReadFrequently: true });
   context.fillStyle = 'grey';
   // dims of canvas on start
-  context.fillRect(0, 0, 50, 50);
+  context.fillRect(0, 0, 100, 100);
 
   // canvas setup
 
@@ -145,7 +143,7 @@ const demoVfbfStreamer = () => {
     return fps;
   };
 
-  // VfbfStreamer callbacksL
+  // VfbfStreamer callbacks:
   // video ended callback:
   const VideoEnded = () => {
     playUrl.innerHTML = 'Play';
