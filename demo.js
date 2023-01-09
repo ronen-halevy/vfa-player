@@ -18,12 +18,9 @@ const demoVfbfStreamer = () => {
         : vfbf.playImage(selectedUrl);
     if (isVideoPlaying) {
       playUrl.innerHTML = 'Stop';
-    } else {
-      playUrl.innerHTML = 'Play';
-    }
-    if (isVideoPlaying) {
       document.getElementById('runningStatus').innerHTML = 'running';
     } else {
+      playUrl.innerHTML = 'Play';
       document.getElementById('runningStatus').innerHTML = '';
     }
   };
@@ -147,6 +144,8 @@ const demoVfbfStreamer = () => {
   // video ended callback:
   const VideoEnded = () => {
     playUrl.innerHTML = 'Play';
+    // clear running message:
+    document.getElementById('runningStatus').innerHTML = '';
   };
 
   // Frame by frame callback (frame processing callback):
