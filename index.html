@@ -23,42 +23,42 @@
       <p>This demo illustrates the integration of vfbfStreamer with a Javascript image processing application. 
          <br>
          It provides a simple plain-js example, by demonstrating common input data scenarios and integration with openCvJs as detailed below<br>
-      To keep simple, the demo, is implemented with html and pure javascript (+bootstrap).
+         To keep simple, the demo, is implemented with html and pure javascript (+bootstrap).
       </p>
+      
+      
+      1. <b class="text-bg-dar">Input Data</b>
+      <p>
+         The demo gives various options for input data:
          
+         <li>video url: VfbfStreamer's most straight forward input for.</li>
+         <br>
+         <li>image url:  VfbfStreamer aupports still images input as well, as explained later on.</li>
+         <br>
+         <li>image and videos from local storage files: The demo generates urls for those, before calling the streamer method.</li>
+      </p>
+      2. <b class="text-bg-dar">Frame by Frame Processing algorithms</b>
+      <p>
+         The demo illustrates integration with openCvJs image processing tools and algorithms:
          
-         1. <b class="text-bg-dar">Input Data</b>
-         <p>
-            The demo gives various options for input data:
-          
-            <li>video url: VfbfStreamer's most straight forward input for.</li>
-            <br>
-            <li>image url:  VfbfStreamer aupports still images input as well, as explained later on.</li>
-            <br>
-            <li>image and videos from local storage files: The demo generates urls for those, before calling the streamer method.</li>
-         </p>
-         2. <b class="text-bg-dar">Frame by Frame Processing algorithms</b>
-         <p>
-            The demo illustrates integration with openCvJs image processing tools and algorithms:
-            
-            <li>bw: convert to b&w</li>
-            <br>
-            <li>simple thresholding: set a static threshold</li>
-            <br>
-            <li>canny edge filter: set  canny filter algorithm</li>
-         </p>
-         3. <b class="text-bg-dar">Support of still Images</b>
-         
-         <p>In addition to video straming, the streamer supports forwarding of still images too.<br>
-            Motivation for supporting images by streamer
-            was to supply an integrative contentionless module, for apps which process both images and videos on the same canvas
-         </p>
-         The demo is controlled by below's UI Panel.Follow the execution steps.
-         <br><br>
-         <b><u>UI Panel</u></b>
-      </br> </br>
-      1. <u class="text-bg-dar"><b>Source selection by radio buttons</b></u>
-  
+         <li>bw: convert to b&w</li>
+         <br>
+         <li>simple thresholding: set a static threshold</li>
+         <br>
+         <li>canny edge filter: set  canny filter algorithm</li>
+      </p>
+      3. <b class="text-bg-dar">Support of still Images</b>
+      
+      <p>In addition to video straming, the streamer supports forwarding of still images too.<br>
+         Motivation for supporting images by streamer
+         was to supply an integrative contentionless module, for apps which process both images and videos on the same canvas
+      </p>
+      The demo is controlled by below's UI Panel.Follow the execution steps.
+      <br><br>
+      <b><u>UI Panel</u></b>
+   </br> </br>
+   1. <u class="text-bg-dar"><b>Source selection by radio buttons</b></u>
+   
    <!-- Select input source by radio buttons -->
    <div class="col">
       <span class="form-check col">
@@ -126,19 +126,19 @@ accept='video/*, image/*'
 <!-- Select play/stop button  -->
 <div class="row">
    <div class="col">
-   <br>
-   4. <u class="text-bg-dar"><b>Play</b></u>
-
-</br>       
-<div>
-Click either <b>Play</b> button or Touch<b>Canvas</b> to play or stop.
-</br></br>
+      <br>
+      4. <u class="text-bg-dar"><b>Play</b></u>
+      
+   </br>       
+   <div>
+      Click either <b>Play</b> button or Touch<b>Canvas</b> to play or stop.
+   </br></br>
 </div>
 
 <div class="col">
    <button id='playUrl'></button>
 </div>
-   <!-- Range input -->
+<!-- Range input -->
 </div>
 <input
 type='range'
@@ -147,22 +147,23 @@ step='0.1'
 id='customRange3'/>
 <!-- Canvas. onclick callback added by script -->
 <span class="row">
-   <span class="col">
+   <span class="col-8">
       <p  style="background-color:powderblue;">Touch<b>Canvas</b> to Play/stop</p>
    </span>
    <!-- element for script's runnig message display-->
    <span class="col">
       <b id="runningStatus"></b>
    </span>
+</span>
+
    <canvas id="canvas"  >The current time</canvas>
    <script type="module" src="demo.js"></script>
    <!-- load opencv for demo -->
    <script async src="https://docs.opencv.org/master/opencv.js" type="text/javascript" id="openCv"></script>
-</div>
 <p>Credit+thanks to: <br>
    https://mixkit.co/ 
-  <br>
-    www.shutterstock.com</p>
+   <br>
+   www.shutterstock.com</p>
 </div>
 
 </body>
