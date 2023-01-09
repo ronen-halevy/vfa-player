@@ -143,6 +143,7 @@ const demoVfbfStreamer = () => {
   // VfbfStreamer callbacks:
   // video ended callback:
   const VideoEnded = () => {
+    // change button text
     playUrl.innerHTML = 'Play';
     // clear running message:
     document.getElementById('runningStatus').innerHTML = '';
