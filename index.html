@@ -4,6 +4,12 @@
    <meta charset="utf-8" />
    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
    <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <!-- favicon -->
+   <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+   <link rel="manifest" href="./favicon/site.webmanifest">
+   <!-- title -->
    <title>VfbfStreamer</title>
 
    <link
@@ -31,149 +37,149 @@
       <p> <a href=https://github.com/ronen-halevy/vfbf-streamer>VfbfStreamer</a> is a video streaming utility for developers of frame-by-frame video processing applications.<br>
           This example application aims to illustrate
           the integration of VfbfStreamer with video and image processing applications. 
-     <br>
-         It provides a simple plain html, javascript (+bootstrap) example implementation, which demonstrates various features, various common input data scenarios, and integrations with processing algorithms, 
-         such as OpenCv.js,  as detailed below<br>
-         Code is free to use, with no license or terms.<br>
-          Credits will still e appreciated.
-         .
-      </p>
-   </div>
-
+            <br>
+            It provides a simple plain html, javascript (+bootstrap) example implementation, which demonstrates various features, various common input data scenarios, and integrations with processing algorithms, 
+            such as OpenCv.js,  as detailed below<br>
+            Code is free to use, with no license or terms.<br>
+            Credits will still e appreciated.
+            .
+         </p>
+      </div>
+      
       
       1. <b >Input Data</b>
       <div class="form-control border-success">
-      <p>
-         The demo presents various options for input data:
-         
-         <li>video url: VfbfStreamer's most straight forward input for.</li>
-         <br>
-         <li>image url:  VfbfStreamer aupports still images input as well, as explained later on.</li>
-         <br>
-         <li>image and videos from local storage files: The demo generates urls for those, before calling the streamer method.</li>
-      </p>
-   </div>
+         <p>
+            The demo presents various options for input data:
+            
+            <li>video url: VfbfStreamer's most straight forward input for.</li>
+            <br>
+            <li>image url:  VfbfStreamer aupports still images input as well, as explained later on.</li>
+            <br>
+            <li>image and videos from local storage files: The demo generates urls for those, before calling the streamer method.</li>
+         </p>
+      </div>
       2. <b class="text-bg-dar">Frame by Frame Processing algorithms</b>
       <div class="form-control border-success">
-      <p >
-         The demo illustrates integration with OpenCv.js image processing tools and algorithms:
-         
-         <li>bw: convert to b&w</li>
-         <br>
-         <li>simple thresholding: set a static threshold</li>
-         <br>
-         <li>canny edge filter: set  canny filter algorithm</li>
-      </p>
+         <p >
+            The demo illustrates integration with OpenCv.js image processing tools and algorithms:
+            
+            <li>bw: convert to b&w</li>
+            <br>
+            <li>simple thresholding: set a static threshold</li>
+            <br>
+            <li>canny edge filter: set  canny filter algorithm</li>
+         </p>
       </div>
       3. <b class="">Support of still Images</b>
       <div class="form-control border-success">
       
-      <p >In addition to video straming, the streamer supports forwarding of still images too.<br>
-         Motivation for supporting images by streamer
-         was to supply an integrative contentionless module, for apps which process both images and videos on the same canvas
-      </p>
+         <p >In addition to video straming, the streamer supports forwarding of still images too.<br>
+            Motivation for supporting images by streamer
+            was to supply an integrative contentionless module, for apps which process both images and videos on the same canvas
+         </p>
       </div>
       
       <!-- <div class="h4 pb-2 mb-4 text-danger border-bottom border-danger"> -->
-<br>
-
-<h3>Part 2: VfbfStreamer Demo App</h3>
-
-   <!-- </div> -->
-
+         <br>
+         
+         <h3>Part 2: VfbfStreamer Demo App</h3>
+         
+         <!-- </div> -->
+         
+         
+         Follow the execution steps:
+         <br><br>
+         <b><u>UI Panel</u></b>
+      </br> </br>
+      1. <b>Source selection by radio buttons</b>
+      <div class="form-control border-success">
+         <!-- Select input source by radio buttons -->
+         <div class="col">
+            <span class="form-check col">
+               <input class="form-check-input" type="radio" name="exampleRadios" id="videoUrl" value="video" checked/>
+               <label class="form-check-label text-bg-primar" for="exampleRadios1">
+                  by video url
+               </label>
+            </span>
+            <span class="form-check col">
+               <input class="form-check-input" type="radio" name="exampleRadios" id="imageUrl" value="image"/>
+               <label class="form-check-label text-bg-primar" for="exampleRadios2">
+                  by image url
+               </label>
+            </span>
+            <span class="form-check col">
+               <input class="form-check-input" type="radio" name="exampleRadios" id="localFile" value="image"/>
+               <label class="form-check-label text-bg-primar" for="exampleRadios2">
+                  by localFile
+               </label>
+            </span>
+         </div>
+         <!-- element for script's source url display-->
+         
+         
+         <input
+         id='inputFile'
+         type='file'
+         accept='video/*, image/*'
+         />
+         
+         <select id="videoSelect'"></select>
+      </br>
+      <div id="selectedUrl"></div>
       
-      Follow the execution steps:
-      <br><br>
-      <b><u>UI Panel</u></b>
-   </br> </br>
-   1. <b>Source selection by radio buttons</b>
-   <div class="form-control border-success">
-   <!-- Select input source by radio buttons -->
-   <div class="col">
-      <span class="form-check col">
-         <input class="form-check-input" type="radio" name="exampleRadios" id="videoUrl" value="video" checked/>
-         <label class="form-check-label text-bg-primar" for="exampleRadios1">
-            by video url
-         </label>
-      </span>
-      <span class="form-check col">
-         <input class="form-check-input" type="radio" name="exampleRadios" id="imageUrl" value="image"/>
-         <label class="form-check-label text-bg-primar" for="exampleRadios2">
-            by image url
-         </label>
-      </span>
-      <span class="form-check col">
-         <input class="form-check-input" type="radio" name="exampleRadios" id="localFile" value="image"/>
-         <label class="form-check-label text-bg-primar" for="exampleRadios2">
-            by localFile
-         </label>
-      </span>
    </div>
-   <!-- element for script's source url display-->
-
-
-<input
-id='inputFile'
-type='file'
-accept='video/*, image/*'
-/>
-
-<select id="videoSelect'"></select>
-</br>
-<div id="selectedUrl"></div>
-
-</div>
-2.<b>Selection of processing algorithm.</b>
-<div class="form-control border-success">
-
-<!-- Select open-cv algorithm  by radio buttons -->
-<div class=col>
-   <span class="form-check col">
-      <input class="form-check-input" type="radio" name="cvProcess" id="original" value="original" checked/>
-      <label class="form-check-label text-bg-primar" for="exampleRadios1">
-         original
-      </label>
-   </span>
-   <span class="form-check col">
-      <input class="form-check-input" type="radio" name="cvProcess" id="bw" value="bw" />
-      <label class="form-check-label text-bg-primar" for="exampleRadios1">
-         bw
-      </label>
-   </span>
-   <span class="form-check col">
-      <input class="form-check-input" type="radio" name="cvProcess" id="threshold" value="threshold"/>
-      <label class="form-check-label text-bg-primar" for="exampleRadios2">
-         simple thresholding
-      </label>
-   </span>
-   <span class="form-check col">
-      <input class="form-check-input" type="radio" name="cvProcess" id="canny" value="canny"/>
-      <label class="form-check-label text-bg-primar" for="exampleRadios2">
-         canny edge filter
-      </label>
-   </span>
-</div>
-</div>
-<!-- Select play/stop button  -->
-<div class="row">
-   <div class="col">
-  
-      3.<b>Play</b>
-
-   </br>    
+   2.<b>Selection of processing algorithm.</b>
    <div class="form-control border-success">
+      
+      <!-- Select open-cv algorithm  by radio buttons -->
+      <div class=col>
+         <span class="form-check col">
+            <input class="form-check-input" type="radio" name="cvProcess" id="original" value="original" checked/>
+            <label class="form-check-label text-bg-primar" for="exampleRadios1">
+               original
+            </label>
+         </span>
+         <span class="form-check col">
+            <input class="form-check-input" type="radio" name="cvProcess" id="bw" value="bw" />
+            <label class="form-check-label text-bg-primar" for="exampleRadios1">
+               bw
+            </label>
+         </span>
+         <span class="form-check col">
+            <input class="form-check-input" type="radio" name="cvProcess" id="threshold" value="threshold"/>
+            <label class="form-check-label text-bg-primar" for="exampleRadios2">
+               simple thresholding
+            </label>
+         </span>
+         <span class="form-check col">
+            <input class="form-check-input" type="radio" name="cvProcess" id="canny" value="canny"/>
+            <label class="form-check-label text-bg-primar" for="exampleRadios2">
+               canny edge filter
+            </label>
+         </span>
+      </div>
+   </div>
+   <!-- Select play/stop button  -->
+   <div class="row">
+      <div class="col">
+         
+         3.<b>Play</b>
+         
+      </br>    
+      <div class="form-control border-success">
+         
+         <div>
+            Click either <b>Play</b> button or Touch<b>Canvas</b> to play or stop.
+         </br></br>
+      </div>
+      
+      <div class="col">
+         <button id='playUrl'></button>
+      </div>
+   </div>
    
-   <div>
-      Click either <b>Play</b> button or Touch<b>Canvas</b> to play or stop.
-   </br></br>
-</div>
-
-<div class="col">
-   <button id='playUrl'></button>
-</div>
-</div>
-
-<!-- Range input -->
+   <!-- Range input -->
 </div>
 <input
 type='range'
@@ -192,11 +198,11 @@ id='customRange3'/>
    </span>
 </span>
 
-   <canvas id="canvas"  ></canvas>
+<canvas id="canvas"  ></canvas>
 
-   <script type="module" src="demo.js"></script>
-   <!-- load opencv for demo -->
-   <script async src="https://docs.opencv.org/master/opencv.js" type="text/javascript" id="openCv"></script>
+<script type="module" src="demo.js"></script>
+<!-- load opencv for demo -->
+<script async src="https://docs.opencv.org/master/opencv.js" type="text/javascript" id="openCv"></script>
 <p>Credit+thanks to: <br>
    https://mixkit.co/ 
    <br>
