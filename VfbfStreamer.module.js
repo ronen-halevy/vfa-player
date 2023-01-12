@@ -102,6 +102,5 @@ class VfbfStreamer {
   };
 }
 
-export default VfbfStreamer;
 const streamer = {VfbfStreamer: VfbfStreamer} 
 module.exports = streamer

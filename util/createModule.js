@@ -47,6 +47,7 @@ fs.readFile(src, { encoding: 'utf-8' }, function (err, data) {
   }
 
   // write to new file
+  dataArray.splice(lastIndex, 1);
 
   const updatedData = dataArray.join('\n');
   fs.writeFile(dst, updatedData, (err) => {
