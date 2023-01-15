@@ -28,7 +28,6 @@ class VfbfStreamer {
       });
     };
     fetchImage();
-    return false;
   };
 
   setPlaybackRate = (rate) => {
