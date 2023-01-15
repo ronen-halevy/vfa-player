@@ -14,20 +14,16 @@ class VfbfStreamer {
     this.videoObject.currentTime = 0;
   };
 
-  playImage = (dataUrl) => {
-    var imageObject = new window.Image();
-    //
+  playImage = async (dataUrl) => {
     this.stopVideo();
-    const fetchImage = async () => {
-      const res = await fetch(dataUrl);
-      const imageBlob = await res.blob();
-      const imageObjectURL = URL.createObjectURL(imageBlob);
-      imageObject.src = imageObjectURL;
-      imageObject.addEventListener('load', async () => {
-        this.frameCallback(imageObject, 0, 0);
-      });
-    };
-    fetchImage();
+    var imageObject = new window.Image();
+    const res = await fetch(dataUrl);
+    const imageBlob = await res.blob();
+    const imageObjectURL = URL.createObjectURL(imageBlob);
+    imageObject.src = imageObjectURL;
+    imageObject.addEventListener('load', async () => {
+      this.frameCallback(imageObject, 0, 0);
+    });
   };
 
   setPlaybackRate = (rate) => {
