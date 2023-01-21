@@ -19,6 +19,13 @@ streamerCallback(frame, currentTime, duration) is the callback for feeding back 
 VideoEnded() is called after sending the last frame or after streamerCallback is invoked, in case of an image.
 
 playVideo(sourceUrl) - This method trigers sending a callback with next video frame.
-playImage(sourceUrl) - This method triggers sending a calback with loaded image blob
 animationControl - This method triggers video frames animation. Should be invoked in before calling playVideo.
 setCurrentTime(currentTime) - This method should be invoded when time is skipped externally. Normally it is invoked by range component's callback.
+
+In addition to a video streamer, this repo contains an image load function. Api:
+
+loadImage (dataUrl, callback) 
+
+
+
+
