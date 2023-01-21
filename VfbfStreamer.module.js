@@ -96,5 +96,5 @@ const loadImage = async (dataUrl, callback) => {
 	});
 };
 
-export { VfbfStreamer, loadImage };const streamer = {VfbfStreamer: VfbfStreamer} 
+const streamer = {VfbfStreamer: VfbfStreamer, loadImage: loadImage} 
 module.exports = streamer

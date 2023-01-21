@@ -27,10 +27,10 @@ const dst = 'VfbfStreamer.module.js';
 var fs = require('fs');
 
 // line to remove:
-removeLine = 'export { VfbfStreamer, playImage };';
+removeLine = 'export { VfbfStreamer, loadImage };';
 
 newLine =
-	'const streamer = {VfbfStreamer: VfbfStreamer} \nmodule.exports = streamer';
+	'const streamer = {VfbfStreamer: VfbfStreamer, loadImage: loadImage} \nmodule.exports = streamer';
 
 // 1. Remove line
 fs.readFile(src, { encoding: 'utf-8' }, function (err, data) {
