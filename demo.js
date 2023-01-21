@@ -1,4 +1,4 @@
-import VfbfStreamer from './VfbfStreamer.js';
+import { VfbfStreamer, loadImage } from './VfbfStreamer.js';
 
 const demoVfbfStreamer = () => {
 	// callbacks of html elements:
@@ -15,7 +15,7 @@ const demoVfbfStreamer = () => {
 		isVideoPlaying =
 			selectedType == 'video'
 				? vfbf.playVideo(selectedUrl)
-				: vfbf.playImage(selectedUrl);
+				: loadImage(selectedUrl, streamerCallback);
 		if (isVideoPlaying) {
 			playUrl.innerHTML = 'Stop';
 			document.getElementById('runningStatus').innerHTML = 'running';

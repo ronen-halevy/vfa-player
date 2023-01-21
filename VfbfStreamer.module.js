@@ -85,16 +85,16 @@ class VfbfStreamer {
 	};
 }
 
-playImage = async (dataUrl) => {
+const loadImage = async (dataUrl, callback) => {
 	var imageObject = new window.Image();
 	const res = await fetch(dataUrl);
 	const imageBlob = await res.blob();
 	const imageObjectURL = URL.createObjectURL(imageBlob);
 	imageObject.src = imageObjectURL;
 	imageObject.addEventListener('load', async () => {
-		this.frameCallback(imageObject, 0, 0);
+		callback(imageObject, 0, 0);
 	});
 };
 
-const streamer = {VfbfStreamer: VfbfStreamer} 
+export { VfbfStreamer, loadImage };const streamer = {VfbfStreamer: VfbfStreamer} 
 module.exports = streamer

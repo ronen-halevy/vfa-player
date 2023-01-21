@@ -85,7 +85,7 @@ class VfbfStreamer {
 	};
 }
 
-playImage = async (imageUrl, callback) => {
+const loadImage = async (dataUrl, callback) => {
 	var imageObject = new window.Image();
 	const res = await fetch(dataUrl);
 	const imageBlob = await res.blob();
@@ -96,4 +96,4 @@ playImage = async (imageUrl, callback) => {
 	});
 };
 
-export { VfbfStreamer, playImage };
+export { VfbfStreamer, loadImage };
