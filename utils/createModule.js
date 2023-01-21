@@ -27,39 +27,40 @@ const dst = 'VfbfStreamer.module.js';
 var fs = require('fs');
 
 // line to remove:
-removeLine = 'export default VfbfStreamer;';
+removeLine = 'export { VfbfStreamer, playImage };';
+
 newLine =
-  'const streamer = {VfbfStreamer: VfbfStreamer} \nmodule.exports = streamer';
+	'const streamer = {VfbfStreamer: VfbfStreamer} \nmodule.exports = streamer';
 
 // 1. Remove line
 fs.readFile(src, { encoding: 'utf-8' }, function (err, data) {
-  if (err) throw error;
+	if (err) throw error;
 
-  let dataArray = data.split('\n'); // convert file data in an array
-  let lastIndex = -1;
+	let dataArray = data.split('\n'); // convert file data in an array
+	let lastIndex = -1;
 
-  for (let index = 0; index < dataArray.length; index++) {
-    if (dataArray[index].includes(removeLine)) {
-      // check if a line contains the 'user1' keyword
-      lastIndex = index; // found a line includes a 'user1' keyword
-      break;
-    }
-  }
+	for (let index = 0; index < dataArray.length; index++) {
+		if (dataArray[index].includes(removeLine)) {
+			// check if a line contains the 'user1' keyword
+			lastIndex = index; // found a line includes a 'user1' keyword
+			break;
+		}
+	}
 
-  // write to new file
-  dataArray.splice(lastIndex, 1);
+	// write to new file
+	dataArray.splice(lastIndex, 1);
 
-  const updatedData = dataArray.join('\n');
-  fs.writeFile(dst, updatedData, (err) => {
-    if (err) throw err;
-    console.log('Successfully updated the file data');
-    // append new line:
-    fs.open(dst, 'a', 666, function (e, id) {
-      fs.write(id, newLine + '\r\n', null, 'utf8', function () {
-        fs.close(id, function () {
-          console.log('file is updated');
-        });
-      });
-    });
-  });
+	const updatedData = dataArray.join('\n');
+	fs.writeFile(dst, updatedData, (err) => {
+		if (err) throw err;
+		console.log('Successfully updated the file data');
+		// append new line:
+		fs.open(dst, 'a', 666, function (e, id) {
+			fs.write(id, newLine + '\r\n', null, 'utf8', function () {
+				fs.close(id, function () {
+					console.log('file is updated');
+				});
+			});
+		});
+	});
 });
