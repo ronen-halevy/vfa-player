@@ -1,4 +1,4 @@
-// import { VfbfStreamer, loadImage } from './VfbfStreamer.js';
+import { VfbfStreamer } from './VfbfStreamer.js';
 
 const demoVfbfStreamer = () => {
 	// callbacks of html elements:
