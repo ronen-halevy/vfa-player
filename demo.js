@@ -12,10 +12,7 @@ const demoVfbfStreamer = () => {
 	// play-stop callabck - common to play button and clickable canvas:
 	var isVideoPlaying = false;
 	const onClickPlay = () => {
-		isVideoPlaying =
-			selectedType == 'video'
-				? vfbf.playVideo(selectedUrl)
-				: loadImage(selectedUrl, streamerCallback);
+		isVideoPlaying = vfbf.playVideo(selectedUrl);
 		if (isVideoPlaying) {
 			playUrl.innerHTML = 'Stop';
 			document.getElementById('runningStatus').innerHTML = 'running';
@@ -34,8 +31,7 @@ const demoVfbfStreamer = () => {
 		// save url and type to feed player:
 		selectedUrl = fileUrl;
 		// determine type, since streamer has a dedicated method for still images:
-		fileUrlType = file.name.match(/\.(jpg|jpeg|png|gif)$/i) ? 'image' : 'video';
-		selectedType = fileUrlType;
+
 		// annotate document with selected url (added wherever url changes)
 		document.getElementById('selectedUrl').innerHTML =
 			'Selected url: ' + selectedUrl;
@@ -44,29 +40,20 @@ const demoVfbfStreamer = () => {
 	//  input source selection radio buttons  callback:
 	const vidUrl =
 		'https://assets.mixkit.co/videos/download/mixkit-flock-of-seagulls-in-the-sky-17978-medium.mp4';
-	const imgUrl =
-		'https://www.shutterstock.com/shutterstock/photos/1262270857/display_1500/stock-photo-curvy-windy-road-in-snow-covered-forest-top-down-aerial-view-1262270857.jpg';
 	var fileUrl = '';
-	var fileUrlType = '';
 
 	var selectedUrl = vidUrl;
 	// annotate document with selected url (added wherever url changes)
 	document.getElementById('selectedUrl').innerHTML =
 		'Selected url: ' + selectedUrl;
-	var selectedType = 'video';
 
-	const onchangeRadio = (event) => {
-		selectedUrl = event.target.value;
-		selectedType = selectedUrl.match(/\.(jpg|jpeg|png|gif)$/i)
-			? 'image'
-			: selectedUrl.match(/\.(mp4)$/i)
-			? 'video'
-			: 'fileSrc';
-		if (selectedType == 'fileSrc') {
+	const onchangeSource = (event) => {
+		const source = event.target.value;
+		if (source == 'file') {
 			selectedUrl = fileUrl;
-			selectedType = fileUrlType;
 			inputFile.style.visibility = 'visible';
 		} else {
+			selectedUrl = vidUrl;
 			inputFile.style.visibility = 'hidden';
 		}
 		// // annotate document with selected url (added wherever url changes)
@@ -100,14 +87,13 @@ const demoVfbfStreamer = () => {
 	// set radio buttons for input source selection
 
 	const inputSources = [
-		{ id: 'videoUrl', value: vidUrl },
-		{ id: 'imageUrl', value: imgUrl },
-		{ id: 'localFile', value: '' },
+		{ id: 'url', value: 'url' },
+		{ id: 'file', value: 'file' },
 	];
 	inputSources.map((source, index) => {
 		const radioButton = document.getElementById(source.id);
 		radioButton.value = source.value;
-		radioButton.onchange = onchangeRadio;
+		radioButton.onchange = onchangeSource;
 	});
 
 	// inputFile  for image / video file selection:
@@ -204,7 +190,6 @@ const demoVfbfStreamer = () => {
 		range.value = currentTime;
 		range.max = duration;
 	};
-
 	const vfbf = new VfbfStreamer(streamerCallback, VideoEnded);
 };
 demoVfbfStreamer();

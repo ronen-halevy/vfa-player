@@ -18,6 +18,8 @@
    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
    crossorigin="anonymous"
    />
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
 </head>
 <body style="font-size: 14px">
    <div class="container">
@@ -97,19 +99,13 @@
          <!-- Select input source by radio buttons -->
          <div class="col">
             <span class="form-check col">
-               <input class="form-check-input" type="radio" name="exampleRadios" id="videoUrl" value="video" checked/>
+               <input class="form-check-input" type="radio" name="exampleRadios" id="url" value="video" checked/>
                <label class="form-check-label text-bg-primar" for="exampleRadios1">
                   by video url
                </label>
             </span>
             <span class="form-check col">
-               <input class="form-check-input" type="radio" name="exampleRadios" id="imageUrl" value="image"/>
-               <label class="form-check-label text-bg-primar" for="exampleRadios2">
-                  by image url
-               </label>
-            </span>
-            <span class="form-check col">
-               <input class="form-check-input" type="radio" name="exampleRadios" id="localFile" value="image"/>
+               <input class="form-check-input" type="radio" name="exampleRadios" id="file" value="image"/>
                <label class="form-check-label text-bg-primar" for="exampleRadios2">
                   by localFile
                </label>
@@ -121,7 +117,7 @@
          <input
          id='inputFile'
          type='file'
-         accept='video/*, image/*'
+         accept='video/*'
          />
          
          <select id="videoSelect'"></select>
