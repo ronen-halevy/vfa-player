@@ -4,21 +4,20 @@ const demoVfbfStreamer = () => {
 	// callbacks of html elements:
 
 	// range bar callabck:
-	const range = document.getElementById('customRange3');
-	range.onchange = function (e) {
-		range.value = e.target.value;
+	$('#customRange3').change(function (e) {
+		$('#playUrl').val(e.target.value);
 		vfbf.setCurrentTime(e.target.value);
-	};
-	// play-stop callabck - common to play button and clickable canvas:
+	});
+
 	var isVideoPlaying = false;
 	const onClickPlay = () => {
 		isVideoPlaying = vfbf.playVideo(selectedUrl);
 		if (isVideoPlaying) {
-			playUrl.innerHTML = 'Stop';
-			document.getElementById('runningStatus').innerHTML = 'running';
+			$('#playUrl').text('Stop');
+			$('#runningStatus').text('running');
 		} else {
-			playUrl.innerHTML = 'Play';
-			document.getElementById('runningStatus').innerHTML = '';
+			$('#playUrl').text('Play');
+			$('#runningStatus').text('');
 		}
 	};
 
@@ -30,11 +29,8 @@ const demoVfbfStreamer = () => {
 		fileUrl = URL.createObjectURL(file);
 		// save url and type to feed player:
 		selectedUrl = fileUrl;
-		// determine type, since streamer has a dedicated method for still images:
-
 		// annotate document with selected url (added wherever url changes)
-		document.getElementById('selectedUrl').innerHTML =
-			'Selected url: ' + selectedUrl;
+		$('#selectedUrl').text('Selected url: ' + selectedUrl);
 	};
 
 	//  input source selection radio buttons  callback:
@@ -44,8 +40,7 @@ const demoVfbfStreamer = () => {
 
 	var selectedUrl = vidUrl;
 	// annotate document with selected url (added wherever url changes)
-	document.getElementById('selectedUrl').innerHTML =
-		'Selected url: ' + selectedUrl;
+	$('#selectedUrl').text('Selected url: ' + selectedUrl);
 
 	const onchangeSource = (event) => {
 		const source = event.target.value;
@@ -57,8 +52,7 @@ const demoVfbfStreamer = () => {
 			inputFile.style.visibility = 'hidden';
 		}
 		// // annotate document with selected url (added wherever url changes)
-		document.getElementById('selectedUrl').innerHTML =
-			'Selected url: ' + selectedUrl;
+		$('#selectedUrl').text('Selected url: ' + selectedUrl);
 	};
 
 	// onchangeAlg by radio buttons:
@@ -70,8 +64,7 @@ const demoVfbfStreamer = () => {
 	// html components setup:
 
 	// canvas setup
-	const canvas = document.getElementById('canvas');
-	canvas.addEventListener('click', onClickPlay);
+	$('#canvas').on('click', onClickPlay);
 	const context = canvas.getContext('2d'); // tbd: attribute slows the none-algorithm pass fps: , { willReadFrequently: true });
 	context.fillStyle = 'grey';
 	// dims of canvas on start
@@ -79,26 +72,21 @@ const demoVfbfStreamer = () => {
 
 	// canvas setup
 
-	//  play-stop button
-	var button = document.getElementById('playUrl');
-	button.innerHTML = 'Play';
-	button.onclick = onClickPlay;
+	$('#playUrl').text('Play');
+	$('#playUrl').click(onClickPlay);
 
-	// set radio buttons for input source selection
-
+	//  radio buttons for input source selection
 	const inputSources = [
 		{ id: 'url', value: 'url' },
 		{ id: 'file', value: 'file' },
 	];
 	inputSources.map((source, index) => {
-		const radioButton = document.getElementById(source.id);
-		radioButton.value = source.value;
-		radioButton.onchange = onchangeSource;
+		$('#' + source.id).val(source.value);
+		$('#' + source.id).change(onchangeSource);
 	});
 
 	// inputFile  for image / video file selection:
-	var inputFile = document.getElementById('inputFile');
-	inputFile.onchange = onChangeInputFile;
+	$('#inputFile').change(onChangeInputFile);
 
 	// set radio buttons for alg  selection
 	const algorithms = [
@@ -108,9 +96,8 @@ const demoVfbfStreamer = () => {
 		{ id: 'canny', value: 'canny' },
 	];
 	algorithms.map((algorithm, index) => {
-		const radioButton = document.getElementById(algorithm.id);
-		radioButton.value = algorithm.value;
-		radioButton.onchange = onchangeAlg;
+		$('#' + algorithm.id).val(algorithm.value);
+		$('#' + algorithm.id).change(onchangeAlg);
 	});
 
 	// Utilities:
@@ -130,9 +117,9 @@ const demoVfbfStreamer = () => {
 	// video ended callback:
 	const VideoEnded = () => {
 		// change button text
-		playUrl.innerHTML = 'Play';
+		$('#playUrl').text('Play');
 		// clear running message:
-		document.getElementById('runningStatus').innerHTML = '';
+		$('#runningStatus').text('');
 	};
 
 	// Frame by frame callback (frame processing callback):
@@ -187,8 +174,8 @@ const demoVfbfStreamer = () => {
 		context.font = '30px Georgia';
 		context.fillStyle = '#00ff00';
 		context.fillText(text1, 40, 40);
-		range.value = currentTime;
-		range.max = duration;
+		$('#customRange3').val(currentTime);
+		$('#customRange3').prop('max', duration);
 	};
 	const vfbf = new VfbfStreamer(streamerCallback, VideoEnded);
 };
