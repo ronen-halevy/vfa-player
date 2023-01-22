@@ -15,16 +15,13 @@ APIs:
 <b>Constructor:</b>
 VfbfStreamer(streamerCallback, VideoEnded)
 Where: 
-streamerCallback(frame, currentTime, duration) is the callback for feeding back video frames, with indications of current frame time and duration. In case of a stills image, currentTime and duration are 0. 
+streamerCallback(frame, currentTime, duration) is the callback for feeding back video frames, with indications of current frame time and duration. 
 VideoEnded() is called after sending the last frame or after streamerCallback is invoked, in case of an image.
 
 playVideo(sourceUrl) - This method trigers sending a callback with next video frame.
 animationControl - This method triggers video frames animation. Should be invoked in before calling playVideo.
 setCurrentTime(currentTime) - This method should be invoded when time is skipped externally. Normally it is invoked by range component's callback.
 
-In addition to a video streamer, this repo contains an image load function. Api:
-
-loadImage (dataUrl, callback) 
 
 
 
